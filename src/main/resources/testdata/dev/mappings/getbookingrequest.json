@@ -1,0 +1,11 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPattern": "/booking-requests.*"
+
+    },
+  "response": {
+    "proxyBaseUrl" : "http://localhost:8080",
+    "transformers": ["cookie-test"]
+  }
+}

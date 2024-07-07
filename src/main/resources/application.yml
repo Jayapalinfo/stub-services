@@ -1,0 +1,31 @@
+spring:
+  profiles:
+    active: local
+---
+# Dev
+spring:
+  profiles: dev
+jetty:
+  container-threads: 10
+  acceptors: 2
+  accept-queue-size: #Integer.MAX_VALUE
+  header-buffer-size: 8192
+http:
+  port: 8080
+testdata:
+  location: testdata/dev
+---
+
+########################################################################################################################
+# Local
+spring:
+  profiles: local
+http:
+  port: 8091
+jetty:
+  container-threads: 10
+  acceptors: 2
+  accept-queue-size: #Integer.MAX_VALUE
+  header-buffer-size: 8192
+testdata:
+  location: testdata/local

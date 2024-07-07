@@ -1,0 +1,31 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "urlPattern": "/booking-requests.*"
+
+      },
+      "response": {
+        "proxyBaseUrl" : "http://localhost:8080",
+        "transformers": ["cookie-test"]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "urlPattern": "/products/list.*"
+      },
+      "response": {
+        "proxyBaseUrl": "http://localhost:8080",
+        "transformers": [
+          "cookie-adfs"
+        ],
+        "transformerParameters": {
+          "urlPrefixToRemove": "/products"
+        }
+      }
+    }
+  ]
+}
+

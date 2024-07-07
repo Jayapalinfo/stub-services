@@ -1,0 +1,16 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "urlPattern": "/list.*"
+      },
+      "response": {
+        "proxyBaseUrl": "http://localhost:8080",
+        "transformers": [
+          "cookie-adfs"
+        ]
+      }
+    }
+  ]
+}
