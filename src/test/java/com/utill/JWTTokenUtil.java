@@ -25,7 +25,7 @@ import static com.nimbusds.jose.JWSAlgorithm.RS256;
 
 public class JWTTokenUtil {
 
-  static final String KEY_ID = "6n2pdt0rjc1g7blaujvp5ui3o0";
+  static final String KEY_ID = "router";
 
   private static RSAPrivateKey getRSAPrivateKey(){
     try {
@@ -45,18 +45,16 @@ public class JWTTokenUtil {
     JWTClaimsSet claimsSet = new JWTClaimsSet.Builder()
         .expirationTime(exp)
         .issueTime(now)
-        .issuer("https://cognito-idp.eu-central-1.amazonaws.com/eu-central-1_5Thd3nZpe")
+        .issuer("urn:federation:ri-adfs")
         .claim("auth_time", now)
-        .claim("custom:cwid","CVSTN")
-        .claim("given_name","Jayapal")
-        .claim("client_id","6n2pdt0rjc1g7blaujvp5ui3o0")
-        .claim("token_use","access")
-        .claim("family_name","Karyppanadar")
-        .claim("email","jayapal.karuppanadar@covestro.com")
-        .claim("scope","openid profile email")
-        .claim("custom:companyCode","1968")
-        .claim("username","jayapal.karuppanadar@covestro.com")
-        .claim("version", 2)
+        .claim("appid", "Router Advice-Planner")
+        .claim("apptype", "Confidential")
+        .claim("aud", "microsoft:identityserver:Ruter Advice-Planner")
+        .claim("auth_time", Instant.now().toString())
+        .claim("authmethod", "http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows")
+        .claim("iss", "urn:federation:ri-adfs")
+        .claim("scp", "openid")
+        .claim("ver", "1.0")
         .build();
 
     final var signedJWT = new SignedJWT(new JWSHeader.Builder(RS256)
